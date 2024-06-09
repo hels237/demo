@@ -2,6 +2,7 @@ package com.luv2code.demo.serviceImpl;
 
 
 import com.luv2code.demo.dto.UserDto;
+import com.luv2code.demo.exceptions.InvalidOperationException;
 import com.luv2code.demo.model.User;
 import com.luv2code.demo.repository.UserRepository;
 import com.luv2code.demo.service.UserService;
@@ -23,8 +24,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public Integer save(UserDto userDto) {
 
+        // validate the user
         validator.validate(userDto);
 
+        //save the user
         return userRepository.save(UserDto.toEntity(userDto)).getId();
     }
 
@@ -41,11 +44,17 @@ public class UserServiceImpl implements UserService {
     @Override
     public Integer delete(Integer id) {
 
-        return 0;
+        if(id ==  null){
+            throw new InvalidOperationException(" the ID provided is null : "+id," can not DELETED");
+        }
+        userRepository.deleteById(id);
+        return id;
     }
+
 
     @Override
     public List<UserDto> findAll() {
-        return List.of();
+        return userRepository.findAll().stream().map(UserDto::fromEntity).toList();
     }
+
 }

@@ -10,6 +10,6 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class ObjectValidationException extends RuntimeException{
 
-    private final Set<String> errors;
-    private final String violationSource;
+    private final Set<String> violationSource;
+    private final String errors;
 }
