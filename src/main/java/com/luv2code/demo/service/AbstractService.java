@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface AbstractService<T> {
 
-    T save(T object);
+    Integer save(T object);
 
     T findById(Integer id);
 
