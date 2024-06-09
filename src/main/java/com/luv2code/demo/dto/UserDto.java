@@ -2,6 +2,9 @@ package com.luv2code.demo.dto;
 
 
 import com.luv2code.demo.model.User;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Builder;
 import lombok.Data;
 
@@ -11,10 +14,15 @@ public class UserDto {
 
     private Integer id;
 
+    @NotEmpty
+    @NotBlank
     private String firstname;
 
+    @NotEmpty
+    @NotBlank
     private String lastname;
 
+    @Email
     private String email;
 
 
