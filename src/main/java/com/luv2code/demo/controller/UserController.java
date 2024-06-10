@@ -23,8 +23,8 @@ public class UserController {
     }
 
     @GetMapping("/{user-id}")
-    public ResponseEntity<UserDto> findById(Integer id){
-        return ResponseEntity.ok(userService.findById(id));
+    public ResponseEntity<UserDto> findById(@PathVariable("user-id") Integer userId){
+        return ResponseEntity.ok(userService.findById(userId));
     }
 
     @GetMapping("/")
@@ -33,8 +33,8 @@ public class UserController {
     }
 
     @DeleteMapping("/{user-id}")
-    public ResponseEntity<Integer> delete(@PathVariable Integer id){
-        return ResponseEntity.ok(userService.delete(id));
+    public ResponseEntity<Integer> delete(@PathVariable("user-id") Integer userId){
+        return ResponseEntity.ok(userService.delete(userId));
     }
 
 }

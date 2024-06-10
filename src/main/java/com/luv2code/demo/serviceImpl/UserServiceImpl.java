@@ -34,8 +34,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto findById(Integer id) {
 
-        return userRepository.findById(id)
-                            .map(UserDto::fromEntity)
+        return userRepository.findById(id).map(UserDto::fromEntity)
                             .orElseThrow(
                                 ()-> new EntityNotFoundException(" User not found whit the provided ID : "+id)
                             );
