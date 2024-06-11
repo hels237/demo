@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/demo
+    url: jdbc:postgresql://container-demo:5432/demo
     username: hels
     password: hels
     driver-class-name: org.postgresql.Driver
