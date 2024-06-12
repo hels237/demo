@@ -27,6 +27,10 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @OneToOne(mappedBy = "user")
+    private Login login;
+
+
 
 
 
